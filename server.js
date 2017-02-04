@@ -5,6 +5,14 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var artone={
+    title: 'Article One | Loki',
+    heading: 'Article One',
+    date: 'Feb 3, 2017',
+    content:`
+    Hi    dkkdk`
+};
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
