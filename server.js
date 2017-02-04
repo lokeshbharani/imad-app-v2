@@ -84,15 +84,15 @@ app.get('/', function (req, res) {
 });
 
 
-app.get('/article-one', function(req,res){
+app.get('/:article-one', function(req,res){
     res.send(createtemplate(artone));
 });
 
-app.get('/article-two', function(req,res){
+app.get('/:article-two', function(req,res){
     res.send(createtemplate(arttwo));
 });
 
-app.get('/article-three', function(req,res){
+app.get('/:article-three', function(req,res){
     res.send(createtemplate(artthree));
 });
 
