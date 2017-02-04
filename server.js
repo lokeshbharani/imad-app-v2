@@ -7,7 +7,7 @@ app.use(morgan('combined'));
 
 
 var articles={
-artone:{
+"artone":{
     title: 'Article One | Loki',
     heading: 'Article One',
     date: 'Feb 3, 2017',
@@ -19,7 +19,7 @@ artone:{
                 Never Give up.
             </p>`
 },
-arttwo:{
+"arttwo":{
     title: 'Article Two | Loki',
     heading: 'Article Two',
     date: 'Feb 3, 2017',
@@ -30,7 +30,7 @@ arttwo:{
             <p>
                 Never Give up.
             </p>`},
-artthree:{
+"artthree":{
     title: 'Article Three | Loki',
     heading: 'Article Three',
     date: 'Feb 3, 2017',
@@ -84,17 +84,11 @@ app.get('/', function (req, res) {
 });
 
 
-app.get('/:article-one', function(req,res){
-    res.send(createtemplate(artone));
+app.get('/:articleName', function(req,res){
+    res.send(createtemplate(articles[articleName]));
 });
 
-app.get('/:article-two', function(req,res){
-    res.send(createtemplate(arttwo));
-});
 
-app.get('/:article-three', function(req,res){
-    res.send(createtemplate(artthree));
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
