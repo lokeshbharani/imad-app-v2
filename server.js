@@ -5,7 +5,9 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var artone={
+
+var articles={
+artone:{
     title: 'Article One | Loki',
     heading: 'Article One',
     date: 'Feb 3, 2017',
@@ -16,6 +18,30 @@ var artone={
             <p>
                 Never Give up.
             </p>`
+},
+arttwo:{
+    title: 'Article Two | Loki',
+    heading: 'Article Two',
+    date: 'Feb 3, 2017',
+    content:`
+            <p>
+                This is the content for my Second article.
+            </p>
+            <p>
+                Never Give up.
+            </p>`},
+artthree:{
+    title: 'Article Three | Loki',
+    heading: 'Article Three',
+    date: 'Feb 3, 2017',
+    content:`
+            <p>
+                This is the content for my Third article.
+            </p>
+            <p>
+                Never Give up.
+            </p>`}
+
 };
 
 function createtemplate(data){
@@ -63,7 +89,11 @@ app.get('/article-one', function(req,res){
 });
 
 app.get('/article-two', function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+    res.send(createtemplate(arttwo));
+});
+
+app.get('/article-three', function(req,res){
+    res.send(createtemplate(artthree));
 });
 
 app.get('/ui/style.css', function (req, res) {
